@@ -33,6 +33,8 @@
     street: "Musterallee",
     zip: "12345",
     city: "Musterstadt",
+    // vat_id is required for reverse-charge invoices
+    // vat_id: "ATU12345678",
   ),
   // Bank account
   (
@@ -46,7 +48,12 @@
   ),
   // Umsatzsteuersatz (VAT)
   vat: 0.19,
+  // kleinunternehmer: No VAT (German § 19 UStG small business exemption)
+  // reverse-charge: No VAT for foreign EU B2B customers (customer handles VAT)
+  // includes-vat: Item prices include VAT vs exclude VAT
+  // When kleinunternehmer or reverse-charge is true, includes-vat is ignored
   kleinunternehmer: false,
+  reverse-charge: false,
   includes-vat: true
 )
 
