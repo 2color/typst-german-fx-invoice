@@ -23,6 +23,8 @@
   vat: 0.19,
   // Check if the german § 19 UStG applies
   kleinunternehmer: false,
+  // Reverse charge for foreign customers (EU B2B)
+  reverse-charge: false,
   // Is the price of items including Vat or excluding vat? Default is B2C, inclusive.
   includes-vat: true,
 ) = {
@@ -80,7 +82,9 @@
     #author.city, *#invoice-date.display("[day].[month].[year]")*
   ])
 
-  let base_price_f = if kleinunternehmer {
+  let no-vat = kleinunternehmer or reverse-charge
+
+  let base_price_f = if no-vat {
     1.0
   } else if includes-vat {
     1.0 / (1.0 + vat)
@@ -88,7 +92,7 @@
     1.0
   }
 
-  let total_f = if kleinunternehmer {
+  let total_f = if no-vat {
     1.0
   } else if includes-vat {
     1.0
@@ -96,7 +100,7 @@
     1.0 + vat
   }
 
-  let vat_f = if kleinunternehmer {
+  let vat_f = if no-vat {
     0.0
   } else if includes-vat {
     vat / (1.0 + vat)
@@ -129,7 +133,7 @@
       ],
       [#format_currency(base_price)€],
       table.hline(start: 2),
-      ..if not kleinunternehmer {(
+      ..if not no-vat {(
         [],
         [
           #set text(number-type: "old-style")
@@ -156,6 +160,9 @@
     #invoice-text
     #if kleinunternehmer [
       Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
+    ]
+    #if reverse-charge [
+      Steuerschuldnerschaft des Leistungsempfängers (§13b UStG).
     ]
   ]
 
