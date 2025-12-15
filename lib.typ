@@ -15,6 +15,8 @@
   recipient,
   // Name and bank account details of the entity receiving the money
   bank-account,
+  // The title of the invoice (e.g., "Rechnung", "Grant Invoice")
+  invoice-title: "Rechnung",
   // The text to display below the items
   invoice-text: "Vielen Dank für die Zusammenarbeit. Die Rechnungssumme überweisen Sie bitte
     innerhalb von 14 Tagen ohne Abzug auf mein unten genanntes Konto unter Nennung
@@ -83,7 +85,7 @@
   v(4em)
 
   grid(columns: (1fr, 1fr), align: bottom, heading[
-    Rechnung \##invoice-nr
+    #invoice-title \##invoice-nr
   ], [
     #set align(right)
     #author.city, *#invoice-date.display("[day].[month].[year]")*
