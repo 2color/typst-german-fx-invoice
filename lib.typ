@@ -232,12 +232,12 @@
 
     Mit freundlichen Grüßen
 
+    #author.name
+
     #if "signature" in author [
       #scale(origin: left, x: 400%, y: 400%, author.signature)
     ] else [
       #v(1em)
     ]
-
-    #author.name
   ]
 }
