@@ -74,6 +74,9 @@
     #set par(leading: 0.40em)
     #set text(size: 1.2em)
     #recipient.name \
+    #if "co" in recipient [
+      #recipient.co \
+    ]
     #recipient.street \
     #recipient.zip
     #recipient.city
