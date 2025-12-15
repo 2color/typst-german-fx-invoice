@@ -201,7 +201,8 @@
     IBAN: *#iban(bank-account.iban)* \
     BIC: #bank-account.bic
     #if currency != "EUR" and fx-rate != none [
-      \ Rechnungsbetrag in EUR: #format_currency(total * fx-rate)€ (ECB *#invoice-date.display("[day].[month repr:short]")* USD / EUR: #fx-rate)
+      \ Rechnungsbetrag in EUR: #format_currency(total * fx-rate)€ \
+      ECB Exchange Rate *#invoice-date.display("[day].[month repr:short]")* USD / EUR: #fx-rate
     ]
   ]
 

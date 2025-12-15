@@ -55,8 +55,12 @@ No installation needed: open [typst.app](https://typst.app), create a new projec
   // Umsatzsteuersatz (VAT)
   vat: 0.19,
   kleinunternehmer: true,
+  // includes-vat: Item prices include VAT vs exclude VAT
+  
 )
 ```
+
+![](./template/example.png)
 
 ### Foreign Currency Example (USD)
 
@@ -86,6 +90,9 @@ The template will:
 - Use dot as decimal separator for non-EUR currencies
 - Show EUR equivalent amount based on ECB exchange rate
 - Generate EPC QR code with EUR amount (SEPA standard requires EUR)
+
+![](./template/example-usd.png)
+
 
 ## Scope
 

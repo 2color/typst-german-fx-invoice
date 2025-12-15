@@ -42,9 +42,10 @@
   invoice-title: "Rechnung",
   // Custom invoice text 
   invoice-text: "",
+  reverse-charge: true,
   // No VAT for foreign customers
   vat: 0.0,
-  kleinunternehmer: true,
+  kleinunternehmer: false,
   // QR code will use EUR equivalent amount
   show-qr: true,
   // USD as per grant agreement
