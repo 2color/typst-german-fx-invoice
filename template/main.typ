@@ -8,7 +8,7 @@
   // Items
   (
     (
-      description: "The first service provided. The first service provided. The first service provided",
+      description: "The first service provided.",
       price: 200,
     ),
     (
