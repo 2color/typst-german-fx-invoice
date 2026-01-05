@@ -22,7 +22,7 @@
     zip: "12345",
     city: "Your City",
     tax_nr: "12345/67890",
-    // vat_id: "DE123456789",
+    vat_id: "DE123456789",
     // signature: image("example_signature.png", width: 5em)
   ),
   // Recipient
